@@ -1,0 +1,37 @@
+
+
+<!-- <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="10vw"> -->
+<form #myForm="ngForm" (ngSubmit)="addTask(myForm)">
+
+<div fxLayout="row" fxLayoutAlign="start-stretch" fxLayoutGap="70px">
+  <div>Description</div> 
+  <mat-form-field> <input type=text name="description" placeholder="New Task Description" matInput ngModel required></mat-form-field>
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="start-stretch" fxLayoutGap="70px">
+    <div fxFlex="20%">Priority</div>
+    <mat-radio-group  fxLayout="row" fxLayoutAlign="center" fxLayoutGap="2vw" name=priority ngModel>
+        <mat-radio-button value="high">High</mat-radio-button>
+        <mat-radio-button value="medium">Medium</mat-radio-button>
+        <mat-radio-button value="low">Low</mat-radio-button>
+    </mat-radio-group>
+</div>
+  
+
+<div class=container fxLayout="row" fxLayoutAlign="start-stretch" fxLayoutGap="70px">
+    <div fxFlex="15%" >Due Date</div>
+    <mat-form-field>
+        <input [matDatepicker]="datepicker" type=date name="duedate" placeholder="Due Date" matInput ngModel>
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center">
+  <div><button type="submit" color="primary" mat-raise-button [disabled]="myForm.invalid"> Add </button></div>
+</div>
+  
+  </form>
+
+<!-- </div> -->
